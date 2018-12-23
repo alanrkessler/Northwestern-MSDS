@@ -3,4 +3,4 @@
 
 -   [Data Science Environment Setup][]
 
-[Data Science Environment Setup]: ../Atom_Setup.md
+[Data Science Environment Setup]: /Atom_Setup.md
