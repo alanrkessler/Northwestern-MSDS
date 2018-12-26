@@ -15,6 +15,7 @@
     -   linter-flake8
     -   linter-pylint
     -   linter-pydocstyle
+-   Change directory to start kernel in to "Current directory of the file" just out of personal preference in using notebooks.
 -   For reference, assume that base conda environment is where linters will run
 -   For a new conda environment, run `python -m ipykernel install --user --name "py36"`
 -   On Windows, the "platformio-ide-terminal" can refer to PowerShell by default. Other options include:
