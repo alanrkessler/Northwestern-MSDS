@@ -1,0 +1,83 @@
+---
+title: "Week 7 Practice"
+author: "Alan Kessler"
+output: github_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+A lot of the problems this week can be done very quickly in R so I am submitting two problems for practice this week.
+
+The following packages are used this week:
+
+```{r libraries, message=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+```
+
+# Problem 1 
+
+This problem is from Chapter 10: Statistical Inferences about Two Populations, Section 10.3: Statistical Inferences for Two Related Populations [(Black, 2016, p. 346)](#ref).
+
+>10.26 The vice president of marketing brought to the attention of sales managers that most of the company's manufacturer representatives contacted clients and maintained client relationships in a disorganized, haphazard way. The sales managers brought the reps in for a three-day seminar and training session on how to use an organizer to schedule visits and recall pertinent information about each client more effectively. Sales reps were taught how to schedule visits most efficiently to maximize their efforts. Sales managers were given data on the number of site visits by sales reps on a randomly selected day both before and after the seminar. Use the following data to test whether significantly more site visits were made after the seminar (α = .05). Assume the differences in the number of site visits are normally distributed.
+
+## The Data
+
+The data originally from the problem is manually entered into vectors to create a data frame.
+
+```{r data1}
+Rep <- 1:9
+Before <- c(2, 4, 1, 3, 4, 2, 2, 3, 1)
+After <- c(4, 5, 3, 3, 3, 5, 6, 4, 5)
+df <- data.frame(Rep, Before, After)
+
+kable(df, format="html") %>%
+  kable_styling(full_width = FALSE) 
+```
+
+## Test
+
+The test is if the difference in means is significantly greater than 0. 
+
+```{r test1}
+t.test(x = df$After, y = df$Before, var.equal = TRUE, 
+       paired = TRUE, alternative = "greater")
+```
+
+Based on the result of the test, I can reject the null hypothesis that the means are equal or differ by less than zero. 
+
+# Problem 2 
+
+This problem is from Chapter 10: Statistical Inferences about Two Populations, Section 10.5: Testing Hypotheses About Two Population Variances [(Black, 2016, p. 361)](#ref).
+
+>10.42 How long are resale houses on the market? One survey by the Houston Association of Realtors reported that in Houston, resale houses are on the market an average of 112 days. Of course, the length of time varies by market. Suppose random samples of 13 houses in Houston and 11 houses in Chicago that are for resale are traced. The data shown here represent the number of days each house was on the market before being sold. Use the given data and a 1% level of significance to determine whether the population variances for the number of days until resale are different in Houston than in Chicago. Assume the numbers of days resale houses are on the market are normally distributed.
+
+## The Data
+
+The data originally from the problem is manually entered into vectors to create a data frame.
+
+```{r data2}
+Houston <- c(132, 126, 138,	94, 131, 161, 127, 133, 99, 119, 126, 88, 134)
+Chicago <- c(118, 56, 85, 69, 113,	67, 81, 54, 94,	137, 93, NaN, NaN)
+df <- data.frame(Houston, Chicago)
+
+kable(df, format="html") %>%
+  kable_styling(full_width = FALSE) 
+```
+
+## Test
+
+The test is if the difference in means is significantly greater than 0. 
+
+```{r test2}
+var.test(x = Houston, y = Chicago, alternative = "two.sided")
+```
+
+Based on the result of the test, I cannot reject the null hypothesis that the ratio of variances is equal to 1.
+
+# References {#ref}
+
+Black, K. (2016). *Business statistics : for contemporary decision making*. Hoboken: Wiley.
+
+

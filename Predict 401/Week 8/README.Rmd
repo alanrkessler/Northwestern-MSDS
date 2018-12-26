@@ -1,0 +1,103 @@
+---
+title: "Week 8 Practice"
+author: "Alan Kessler"
+output: github_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The following packages are used this week:
+
+```{r libraries, message=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+```
+
+# Problem 1 
+
+This problem is from Chapter 11: Analysis of Variance and Design of Experiments, Section 11.2: The Completely Randomized Design (One-Way Anova) [(Black, 2016, p. 384)](#ref).
+
+>11.14 Family transportation costs are usually higher than most people believe because those costs include car payments, insurance, fuel costs, repairs, parking, and public transportation. Twenty randomly selected families in four major cities are asked to use their records to estimate a monthly figure for transportation cost. Use the data obtained and ANOVA to test whether there is a significant difference in monthly transportation costs for families living in these cities. Assume that α = .05. Discuss the business implications of your findings.
+
+## The Data
+
+The data originally from the problem is manually entered into vectors to create a data frame.
+
+```{r data1}
+
+city <- c(rep("ATLANTA", 5), rep("NEW YORK", 5), 
+            rep("LOS ANGELES", 5), rep("CHICAGO", 5))
+cost <- c(850, 680, 750, 800, 875, 450, 725, 500, 375, 700, 
+          1050, 900, 1150, 980, 800, 740, 650, 875, 750, 800)
+df <- data.frame(city, cost)
+
+# For display
+pdf <- data.frame(df[1:5, 2], df[6:10, 2], df[11:15, 2], df[16:20, 2])
+colnames(pdf) <- c("ATLANTA", "NEW YORK", "LOS ANGELES", "CHICAGO")
+
+kable(pdf, format="html") %>%
+  kable_styling(bootstrap_options="striped", full_width = FALSE)
+
+```
+
+## Test
+
+```{r anova1}
+
+summary(aov(cost ~ city, data = df))
+
+```
+
+Based on the results of the test (p-value < 0.05), I can reject the null hypothesis that the average transportation costs are equal. Business implications could include needed to compensate workers in cities that have higher transport costs, improving infrastrucutre in those cities, and advertising differently based on much transportation costs. 
+
+# Problem 2 
+
+This problem is from Chapter 12: Simple Regression Analysis and Correlation, Section 12.3: Determining the Equation of the Regression Line [(Black, 2016, p. 436)](#ref).
+
+>12.12 Can the annual new orders for manufacturing in the United States be predicted by the raw steel production in the United States? Shown below are the annual new orders for 10 years according to the U.S. Census Bureau and the raw steel production for the same 10 years as published by the American Iron & Steel Institute. Use these data to develop a regression model to predict annual new orders by raw steel production. Construct a scatter plot and draw the regression line through the points.
+
+## The Data
+
+The data originally from the problem is manually entered into vectors to create a data frame.
+
+```{r data2}
+# Raw steel production (100,000s of net tons)
+Steel <- c(99.9, 97.9, 98.9, 87.9, 92.9, 97.9, 100.6, 104.9, 105.3, 108.6)
+# New Orders ($ Trillions)
+Orders <- c(2.74, 2.87, 2.93, 2.87, 2.98, 3.09, 3.36, 3.61, 3.75, 3.95)
+df <- data.frame(Steel, Orders)
+
+kable(df, format="html") %>%
+  kable_styling(bootstrap_options="striped", full_width = FALSE) 
+```
+
+## Basic Model
+
+```{r reg}
+
+summary(lm(Orders ~ Steel, data = df))
+
+```
+
+Raw steel production is a signficant variable in the model based on the above results.
+
+## Plot
+
+```{r plot}
+
+ggplot(df, aes(x = Steel, y = Orders)) +
+  geom_point(shape = 1, col = "firebrick3") +    
+  geom_smooth(method = lm, se = FALSE, col = "dodgerblue") +
+  ggtitle("New Orders for Manufacturing as a Function of Steel Production") +
+  xlab("Raw Steel Production (100,000s of net tons") +
+  ylab("New Orders ($ Trillions)")
+
+```
+
+# References {#ref}
+
+Black, K. (2016). *Business statistics : for contemporary decision making*. Hoboken: Wiley.
+
+

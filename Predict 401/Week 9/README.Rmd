@@ -1,0 +1,98 @@
+---
+title: "Week 9 Practice"
+author: "Alan Kessler"
+output: github_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+A lot of the problems this week are related so for chapter 12, I will base multiple problems on the data in problem 12.6. Then I will complete a few of the problems
+
+The following packages are used this week:
+
+```{r libraries, message=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+```
+
+# Chapter 12
+
+## Data
+
+The data used in the next two problems is from Chapter 12: Simple Regression Analysis and Correlation, Section 12.3: Determining the Equation of the Regression Line, problem 12.6 [(Black, 2016, p. 435)](#ref).
+
+The data originally from the problem is manually entered into vectors to create a data frame.
+
+```{r data1}
+x <- c(12, 21, 28, 8, 20)
+y <- c(17, 15, 22, 19, 24)
+df <- data.frame(x, y)
+
+kable(df, format="html") %>%
+  kable_styling(full_width = FALSE) 
+```
+
+## Problem 1
+
+This problem is from Chapter 12: Simple Regression Analysis and Correlation, Section 12.6: Coefficient of Determination [(Black, 2016, p. 448)](#ref).
+
+>12.32 Compute $r^2$ for Problem 12.24 (Problem 12.6). Discuss the value of $r^2$ obtained.
+
+```{r p1}
+m <- summary(lm(y ~ x))
+round(m$r.squared, 4)
+```
+
+The value calculated above shows that x explains about 12% of the variability of $y$. Like the section discusses, the acceptability of this result depends on the context of the use of the model.
+
+## Problem 2 
+
+This problem is from Chapter 12: Simple Regression Analysis and Correlation, Section 12.7: Hypothesis Tests for the Slope of the Regression Model and Testing the Overall Model [(Black, 2016, p. 453)](#ref).
+
+>12.38 Test the slope of the regression line determined in Problem 12.6. Use $\alpha=0.05$. 
+
+```{r p2}
+m$coefficients[2,]
+```
+
+The result is that x is not a signficant variable in the model at the specified confidence level.
+
+# Chapter 13
+
+This problem is from Chapter 13: Multiple Regression Analysis, Section 13.1: The Multiple Regression Model [(Black, 2016, p. 480)](#ref).
+
+>13.2 Use a computer to develop the equation of the regression model for the following data. Comment on the regression coefficientss. Determine the predicted value of y for $x_1 = 33$, $x_2 = 29$, and $x_3 = 13$. 
+
+## Data
+
+```{r data2}
+y <- c(114, 94, 87, 98, 101)
+x1 <- c(21, 43, 56, 19, 29)
+x2 <- c(6, 25, 42, 27, 20)
+x3 <- c(5, 8, 25, 9, 12)
+df <- data.frame(y, x1, x2, x3)
+
+kable(df, format="html") %>%
+  kable_styling(full_width = FALSE) 
+```
+
+```{r p3}
+m <- lm(y ~ x1 + x2 + x3, data = df)
+summary(m)
+```
+
+Based on the results, with this small of a sample size, the model and variables are not statistically significant. The $r^2$ shows that the model explains almost all of the variance in $y$. Variables $x_1$ and $x_2$ have a negative relationship with $y$ while $x_3$ has a postive relationship. 
+
+```{r p4}
+new <- data.frame(x1 = 33, x2 = 29, x3 = 13)
+predict(m, newdata = new)
+```
+
+The above code calculates the preditced value for the inputs shown in the problem. 
+
+# References {#ref}
+
+Black, K. (2016). *Business statistics : for contemporary decision making*. Hoboken: Wiley.
+
+

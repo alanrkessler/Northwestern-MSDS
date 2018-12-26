@@ -1,0 +1,111 @@
+Week 2 Practice
+================
+Alan Kessler
+
+This problem is from Chapter 3: Descriptive Statistics, Section 3.4: Measures of Shape [(Black, 2016, p. 80)](#ref).
+
+> 3.38 Suppose a consumer group asked 18 consumers to keep a yearly log of their shopping practices and that the following data represent the number of coupons used by each consumer over the yearly period. Use the data to construct a box-and-whisker plot. List the median, Q1, Q3, the endpoints for the inner fences, and the endpoints for the outer fences. Discuss the skewness of the distribution of these data and point out any outliers.
+
+The following packages are used in this problem:
+
+``` r
+library(dplyr)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+```
+
+The Data
+--------
+
+The data originally from the problem is manually entered into vectors to create a data frame.
+
+``` r
+# Load problem data
+DataVector <- c(81,68,70,100,94,47,66,70,82,
+                110,105,60,21,70,66,90,78,85)
+
+# Format the data for printing
+ProbDataPrint <- t(data_frame(DataVector[1:9],DataVector[10:18]))
+rownames(ProbDataPrint) <- NULL
+
+kable(ProbDataPrint, format="html") %>%
+    kable_styling(bootstrap_options = c("hover", "condensed", "responsive"),
+                  full_width=FALSE)
+```
+
+<table class="table table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:right;">
+81
+</td>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+94
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+82
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+85
+</td>
+</tr>
+</tbody>
+</table>
+
+``` r
+boxplot(DataVector,
+        ylab="Annual Number of Coupons Used",
+        main="Box-and-Whisker Plot of Coupon Usage")
+```
+
+![](README_files/figure-markdown_github/plot-1.png)
+
+References
+----------
+
+Black, K. (2016). *Business statistics : for contemporary decision making*. Hoboken: Wiley.

@@ -1,0 +1,95 @@
+---
+title: "Week 6 Practice"
+author: "Alan Kessler"
+output: github_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+A lot of the problems this week can be done very quickly in R so I am submitting two problems for practice this week. 
+
+The following packages are used this week:
+
+```{r libraries, message=FALSE, warning=FALSE}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+```
+
+# Problem 1 
+
+This problem is from Chapter 16: Analysis of Categorical Data, Section 16.1: Chi-Square Goodness-of-Fit Test [(Black, 2016, p. 608)](#ref).
+
+>16.8 The Springfield Emergency Medical Service keeps records of emergency telephone calls. A study of 150 five-minute time intervals resulted in the distribution of number of calls that follows. For example, during 18 of the 5-minute intervals, no calls occured. Use the chi-square goodness-of-fit test and $\alpha = 0.01$ to determine whether this distribution is Poisson.
+
+## The Data
+
+The data originally from the problem is manually entered into vectors to create a data frame.
+
+```{r data1}
+Frequency <- c(18, 28, 47, 21, 16, 11, 9)
+df <- data.frame(Frequency)
+rownames(df) <- c("0", "1", "2", "3", "4", "5", "6 or more")
+
+kable(df, format="html") %>%
+  kable_styling(full_width = FALSE) %>%
+  group_rows("Calls", 1, 7)
+```
+
+## Test for Goodness-of-Fit
+
+```{r test1}
+# Fill in Poisson probabilities
+df$ncalls <- (0:6)
+lambda <- sum(df$ncalls * df$Frequency) / sum(df$Frequency)
+df$PoisProbs <- dpois(df$ncalls, lambda) 
+
+# Replace the last cell to reflect the inequality
+df$PoisProbs[7] <- 1 - sum(df$PoisProbs[0:6])
+
+chisq.test(x = df$Frequency, p = df$PoisProbs)
+```
+
+The p-value is greater than 0.01 which suggest that we cannot reject the null hypothesis that the number of calls is Poisson distributed at this value for $\alpha$. 
+
+# Problem 2 
+
+This problem is from Chapter 16: Analysis of Categorical Data, Section 16.2: Contingency Analysis: Chi-Square Test of Independence [(Black, 2016, p. 614)](#ref).
+
+>16.12 Use the following contingency table and chi-square test of independence to determine whether social class is independent of number of children in a family. Let $\alpha = 0.05$.
+
+## The Data
+
+The data originally from the problem is manually entered into a table.
+
+```{r data}
+ClassStudy <- as.table(rbind(c(7, 18, 6), 
+                             c(9, 38, 23), 
+                             c(34, 97, 58), 
+                             c(47, 31, 30)))
+
+# Label columns and rows
+dimnames(ClassStudy) <- list(NumberChildren = c("0", "1", "2 or 3", "More than 3"),
+                             SocialClass = c("Lower","Middle", "Upper"))
+
+
+kable(ClassStudy, format="html") %>%
+  kable_styling(full_width = FALSE) %>%
+  add_header_above(c(" ", "Social Class" = 3)) %>%
+  group_rows("Children", 1, 4)
+```
+
+## Test for Independence 
+
+```{r test}
+chisq.test(ClassStudy)
+```
+
+The p-value is less than 0.05 which suggests that we can reject the null hypothesis that social class is independent of the number of children in a family at this value for $\alpha$. 
+
+# References {#ref}
+
+Black, K. (2016). *Business statistics : for contemporary decision making*. Hoboken: Wiley.
+
+
