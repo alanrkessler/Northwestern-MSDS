@@ -24,5 +24,5 @@ This section of the course uses Python.
     -   [Assignment 3 - Report](Assignment_3.pdf)
 -   Unit 4
     -   [Bonus Assignment](Bonus_4.pdf)
-    -   [Assignment 4 - Code](Assignment_4ipynb)
+    -   [Assignment 4 - Code](Assignment_4.ipynb)
     -   [Assignment 4 - Report](Assignment_4.pdf)
