@@ -8,6 +8,7 @@
 -   [Predict 410 - Regression Analysis][]
 -   [MSDS 402 - Introduction to Data Science][]
 -   [MSDS 411 - Generalized Linear Models][]
+-   [MSDS 422 - Practical Machine Learning][]
 -   [MSDS 458 - Artificial Intelligence and Deep Learning][]
 -   [MSDS 420 - Database Systems and Data Preparation][]
 -   [MSDS 460 - Decision Analytics][]
@@ -19,7 +20,8 @@
 [Predict 410 - Regression Analysis]: /Predict%20410/README.md
 [MSDS 402 - Introduction to Data Science]: /MSDS%20402/README.md
 [MSDS 411 - Generalized Linear Models]: /MSDS%20411/README.md
-[MSDS 458 - Artificial Intelligence and Deep Learning]: /MSDS%20458/README.md
+[MSDS 422 - Practical Machine Learning]: /MSDS%20422
+[MSDS 458 - Artificial Intelligence and Deep Learning]: /MSDS%20458
 [MSDS 420 - Database Systems and Data Preparation]: /MSDS%20420/README.md
 [MSDS 460 - Decision Analytics]: /MSDS%20460/README.md
 [MSDS 475 - Project Management]: /MSDS%20475/README.md
