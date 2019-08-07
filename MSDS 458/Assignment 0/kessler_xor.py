@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Training XOR Model using numpy - Alan Kessler
+"""Training XOR Model using numpy - Alan Kessler.
 
 Assumptions:
     * Assumes sigmoid transfer function with alpha=1
@@ -13,9 +13,12 @@ import numpy as np
 # Random number generating seed for reproducible results
 np.random.seed(9798)
 
+
 class NeuralNet:
-    """Describes a neural network of the type used in this example"""
+    """Describes a neural network of the type used in this example."""
+
     def __init__(self, case_input, weights, biases, net0, out0, net1, out1):
+        """Create starting parts of the neural net."""
         self.case_input = case_input
         self.weights = weights
         self.biases = biases
@@ -25,7 +28,7 @@ class NeuralNet:
         self.out1 = out1
 
     def describe(self):
-        """Prints information about the neural network"""
+        """Print information about the neural network."""
         print("Input array:")
         print(self.case_input)
         print("\nWeights (first row corresponds to first output):")
@@ -41,17 +44,21 @@ class NeuralNet:
         print("\nOutput Layer Final Output:")
         print(self.out1)
 
+
 class Backprop:
-    """Describes the results of backpropagation"""
+    """Describes the results of backpropagation."""
+
     def __init__(self, target, eta, delta0, delta1, weights_new, biases_new):
+        """Create starting parts of the backprop."""
         self.target = target
         self.eta = eta
         self.delta0 = delta0
         self.delta1 = delta1
         self.weights_new = weights_new
         self.biases_new = biases_new
+
     def describe(self):
-        """Prints information about the backpropagation"""
+        """Print information about the backpropagation."""
         print("Target:")
         print(self.target)
         print(f"\nEta (learning rate): {self.eta}")
@@ -63,6 +70,7 @@ class Backprop:
         print(self.weights_new)
         print("\n Biases (unchanged):")
         print(self.biases_new)
+
 
 def sigmoid_transfer(net_sum):
     """Calculate the sigmoid transfer function.
@@ -77,8 +85,9 @@ def sigmoid_transfer(net_sum):
     """
     return 1 / (1 + np.exp(-net_sum))
 
+
 def initial_weights(input_dim, hidden_nodes, output_dim):
-    """Randomly assigns initial weights [-1, 1)
+    """Randomly assigns initial weights [-1, 1).
 
     Args:
         input_dim: number of inputs
@@ -92,8 +101,9 @@ def initial_weights(input_dim, hidden_nodes, output_dim):
     hidden_to_output = np.random.uniform(-1, 1, (output_dim, hidden_nodes))
     return [input_to_hidden, hidden_to_output]
 
+
 def initial_biases(hidden_nodes, output_dim):
-    """Randomly assigns initial biases [-1, 1)
+    """Randomly assigns initial biases [-1, 1).
 
     Args:
         hidden_nodes: number of hidden_nodes
@@ -106,11 +116,12 @@ def initial_biases(hidden_nodes, output_dim):
     hidden_to_output = np.random.uniform(-1, 1, output_dim)
     return [input_to_hidden, hidden_to_output]
 
+
 def forward_pass(case_input, size,
                  weights=None,
                  biases=None,
                  verbose=False):
-    """Calculate the result of a forward pass through the neural network
+    """Calculate the result of a forward pass through the neural network.
 
     Args:
         case_input: array of input into the neural network
@@ -124,7 +135,6 @@ def forward_pass(case_input, size,
         TypeError: if arguments are not arrays.
 
     """
-
     # If not supplied, generate random weights
     if weights is None:
         weights = initial_weights(size[0], size[1], size[2])
@@ -160,8 +170,9 @@ def forward_pass(case_input, size,
 
     return forpass
 
+
 def sse_eval(target, network, verbose=False):
-    """Calculate the sum of squared errors for a neural network
+    """Calculate the sum of squared errors for a neural network.
 
     Args:
         target: array of ideal output
@@ -173,7 +184,6 @@ def sse_eval(target, network, verbose=False):
         TypeError: if arguments are not an array and a NeuralNet.
 
     """
-
     # Check input types
     if not isinstance(target, np.ndarray):
         raise TypeError("target must be an array")
@@ -187,8 +197,9 @@ def sse_eval(target, network, verbose=False):
 
     return sse
 
+
 def backpropagation(target, network, eta, verbose=False):
-    """Conducts a step of backpropagation
+    """Conducts a step of backpropagation.
 
     Args:
         target: array of ideal output
@@ -201,7 +212,6 @@ def backpropagation(target, network, eta, verbose=False):
         TypeError: if arguments are not an array, NeuralNet, and numeric.
 
     """
-
     # Check if eta is a number
     if not isinstance(eta, (int, float)):
         raise TypeError("eta (learning rate) must be type int or float")
@@ -238,10 +248,11 @@ def backpropagation(target, network, eta, verbose=False):
 
     return bprop
 
+
 def train_xor(case_input, target, size,
               eta=0.5, epsilon=0.05, iterations=5000,
               verbose=True):
-    """Trains the XOR model and then predicts target
+    """Trains the XOR model and then predicts target.
 
     Assumptions:
         For each iteration (epoch) all input records are used in random order
@@ -261,7 +272,6 @@ def train_xor(case_input, target, size,
         ValueError: if the number of iterations is less than or equal to 0.
 
     """
-
     # Check if epsilon a float
     if not isinstance(epsilon, float):
         raise TypeError("epsilon (learning rate) must be type float")
@@ -338,6 +348,7 @@ def train_xor(case_input, target, size,
             break
 
     return fit
+
 
 if __name__ == '__main__':
     train_xor(np.array([[0, 0], [0, 1], [1, 0], [1, 1]]),
