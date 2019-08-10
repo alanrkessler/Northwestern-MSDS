@@ -1,0 +1,20 @@
+In offices across from Seattle's Boeing Field, recent college graduates employed by the Indian software developer HCL Technologies occupied several rows of desks, said Mark Rabin, a former Boeing software engineer who worked in a flight-test group that supported the MAX.
+
+The coders from HCL were typically designing to specifications set by Boeing. Still, "it was controversial because it was far less efficient than Boeing engineers just writing the code," Rabin said. Frequently, he recalled, "it took many rounds going back and forth because the code was not done correctly."
+
+Boeing's cultivation of Indian companies appeared to pay other dividends. In recent years, it has won several orders for Indian military and commercial aircraft, such as a $US22 billion one in January 2017 to supply SpiceJet.
+
+That order included 100 737-MAX 8 jets and represented Boeing's largest order ever from an Indian airline, a coup in a country dominated by Airbus.
+
+Based on resumes posted on social media, HCL engineers helped develop and test the MAX's flight-display software, while employees from another Indian company, Cyient, handled software for flight-test equipment.
+
+In one post, an HCL employee summarised his duties with a reference to the now-infamous model, which started flight tests in January 2016: "Provided quick workaround to resolve production issue which resulted in not delaying flight test of 737-MAX (delay in each flight test will cost very big amount for Boeing)."
+
+Boeing said the company did not rely on engineers from HCL and Cyient for the Maneuvering Characteristics Augmentation System, which has been linked to the Lion Air crash last October and the Ethiopian Airlines disaster in March.
+
+The Chicago-based planemaker also said it didn't rely on either firm for another software issue disclosed after the crashes: a cockpit warning light that wasn't working for most buyers.
+
+"Boeing has many decades of experience working with supplier/partners around the world," a company spokesman said. "Our primary focus is on always ensuring that our products and services are safe, of the highest quality and comply with all applicable regulations."
+
+In a statement, HCL said it "has a strong and long-standing business relationship with The Boeing Company, and we take pride in the work we do for all our customers. However, HCL does not comment on specific work we do for our customers. HCL is not associated with any ongoing issues with 737 MAX."
+
