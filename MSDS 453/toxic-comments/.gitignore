@@ -1,0 +1,4 @@
+/data/*
+!*/README.md
+**/reports/submissions/**
+**/reports/figures/**/importance_*.png

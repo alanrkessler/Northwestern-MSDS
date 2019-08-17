@@ -1,0 +1,7 @@
+Cross-Validation AUC
+Class: toxic, AUC: 0.960625
+Class: severe_toxic, AUC: 0.980749
+Class: obscene, AUC: 0.975130
+Class: threat, AUC: 0.967684
+Class: insult, AUC: 0.968396
+Class: identity_hate, AUC: 0.963116

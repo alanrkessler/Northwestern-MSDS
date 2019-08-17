@@ -1,0 +1,33 @@
+Exploration
+                 id                                       comment_text  toxic  \
+0  0000997932d777bf  Explanation\nWhy the edits made under my usern...      0   
+1  000103f0d9cfb60f  D'aww! He matches this background colour I'm s...      0   
+2  000113f07ec002fd  Hey man, I'm really not trying to edit war. It...      0   
+3  0001b41b1c6bb37e  "\nMore\nI can't make any real suggestions on ...      0   
+4  0001d958c54c6e35  You, sir, are my hero. Any chance you remember...      0   
+
+   severe_toxic  obscene  threat  insult  identity_hate  
+0             0        0       0       0              0  
+1             0        0       0       0              0  
+2             0        0       0       0              0  
+3             0        0       0       0              0  
+4             0        0       0       0              0  
+
+Training set has 159,571 rows
+9.58% Toxic
+1.00% Severe Toxic
+5.29% Obscene
+0.30% Threat
+4.94% Insult
+0.88% Identity Hate
+
+Number missing in each column:
+id               0
+comment_text     0
+toxic            0
+severe_toxic     0
+obscene          0
+threat           0
+insult           0
+identity_hate    0
+dtype: int64

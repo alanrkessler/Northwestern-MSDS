@@ -1,0 +1,33 @@
+
+Raw Comment Examples
+
+Clean Comment Example:
+'Eelam War IV \n\nCould you please see Eelam War IV.\nThanks.'
+
+Toxic Comment Example:
+'See \n\nYou soon, loser.'
+
+Interesting Comment Format Examples:
+IP Address
+'He is bad man! He makes much vandalism! 177.154.145.102'
+
+Talk
+'"\nNoted. Just trying to be helpful )  | talk "'
+
+Processed Examples
+
+Clean Comment Example:
+'eelam war could please see eelam war thanks'
+
+Toxic Comment Example:
+'see soon loser'
+
+Processed Interesting Comment Format Examples:
+IP Address
+'bad man make much vandalism'
+
+Talk
+'note try helpful talk'
+
+Fixed to Remove Talk
+'note try helpful'

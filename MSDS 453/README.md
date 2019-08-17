@@ -7,5 +7,4 @@ A comprehensive review of text analytics and natural language processing with a 
 
 ## Projects and Assignments
 -   [Airline Safety NLP](./airline_safety_nlp/) - Weekly discussion topic assignments on a small corpus.
-
-
+-   [Toxic Comments](./toxic-comments) - Final project to classify Wikipedia comments.
