@@ -5,7 +5,6 @@
     -   linter-markdown
     -   file-icons
     -   Hydrogen
-    -   platformio-ide-terminal
 
 ## Python
 
@@ -18,9 +17,6 @@
 -   Change directory to start kernel in to "Current directory of the file" just out of personal preference in using notebooks.
 -   For reference, assume that base conda environment is where linters will run
 -   For a new conda environment, run `python -m ipykernel install --user --name "py36"`
--   On Windows, the "platformio-ide-terminal" can refer to PowerShell by default. Other options include:
-    -   Ubuntu: Navigate to "Use developer features" and enable "Developer mode". Then navigate to "Turn Windows features on and off". Turn check the box for "Windows Subsystem for Linux". After restarting, install Ubuntu from the Windows Store. Run Ubuntu to configure. In the "platformio-ide-terminal" settings, change the "Shell Override" to  `ubuntu.exe`.
-    -   Anaconda Prompt: In the "platformio-ide-terminal" settings, change the "Shell Override" to  `C:\Windows\System32\cmd.exe`. Set the "Auto Run Command" to: `<conda install location>\Anaconda3\Scripts\activate.bat`. If Python is not installed in the Windows Subsystem for Linux, this option is preferred for managing conda environments and packages.
 
 ## R
 
