@@ -1,6 +1,8 @@
 # Northwestern-MSDS
 *Northwestern University MS in Data Science*
 
+Some of the visuals use Jupyter notebooks. These do not always render on GitHub. If they don't, [nbviewer](https://nbviewer.jupyter.org/) can render them by pasting in the url for the notebook.
+
 -   [Side Project - H2O Stacking][]
 -   [Predict 400 - Math for Data Scientists][]
 -   [Predict 401 - Applied Statistics with R][]
