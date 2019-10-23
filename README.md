@@ -1,7 +1,6 @@
 # Northwestern-MSDS
 *Northwestern University MS in Data Science*
 
--   [Data Science Environment Setup][]
 -   [Side Project - H2O Stacking][]
 -   [Predict 400 - Math for Data Scientists][]
 -   [Predict 401 - Applied Statistics with R][]
@@ -14,8 +13,8 @@
 -   [MSDS 460 - Decision Analytics][]
 -   [MSDS 475 - Project Management][]
 -   [MSDS 453 - Natural Language Processing][]
+-   [Side Project - Meaningful Model Comparison][]
 
-[Data Science Environment Setup]: /Side%20Projects/Atom%20Setup.md
 [Predict 400 - Math for Data Scientists]: /Predict%20400/README.md
 [Predict 401 - Applied Statistics with R]: /Predict%20401/README.md
 [Predict 410 - Regression Analysis]: /Predict%20410/README.md
@@ -28,3 +27,4 @@
 [MSDS 475 - Project Management]: /MSDS%20475/README.md
 [MSDS 453 - Natural Language Processing]: /MSDS%20453
 [Side Project - H2O Stacking]: /Side%20Projects/Stacking%20with%20h2o.ipynb
+[Side Project - Meaningful Model Comparison]: /Side%20Projects/model_comparison/README.md
